@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # https://dart-lang.github.io/linter/lints/prefer_relative_imports.html
+    prefer_relative_imports: true
+    # https://dart-lang.github.io/linter/lints/prefer_single_quotes.html
+    prefer_single_quotes: true
+    # https://dart-lang.github.io/linter/lints/sort_child_properties_last.html
+    sort_child_properties_last: true
+    # https://dart-lang.github.io/linter/lints/sort_pub_dependencies.html
+    sort_pub_dependencies: true
