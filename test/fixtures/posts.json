@@ -1,0 +1,27 @@
+{
+  "data": {
+    "children": [
+      {
+        "data": {
+          "title": "Nostrud incididunt magna nisi aute ex.",
+          "author": "Delia Monahan",
+          "subreddit": "news"
+        }
+      },
+      {
+        "data": {
+          "title": "Adipisicing ut eu ad magna nostrud enim.",
+          "author": "Carole Hudson",
+          "subreddit": "news"
+        }
+      },
+      {
+        "data": {
+          "title": "Nisi sint eu aliqua nisi irure.",
+          "author": "Gilbert VonRueden",
+          "subreddit": "news"
+        }
+      }
+    ]
+  }
+}
