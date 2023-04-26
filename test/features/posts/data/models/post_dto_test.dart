@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rocket/features/posts/data/models/post_dto.dart';
 
@@ -10,7 +8,7 @@ void main() {
     late Map<String, dynamic> source;
 
     setUp(() {
-      source = json.decode(fixture('post.json'));
+      source = 'post.json'.toFixture();
     });
 
     test('creates a new post when the JSON is a valid Post object', () {

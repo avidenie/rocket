@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
@@ -22,7 +20,7 @@ void main() {
           '/r/popular.json',
           (server) => server.reply(
             200,
-            json.decode(fixture('posts.json')),
+            'posts.json'.toFixture(),
           ),
         );
 
@@ -93,7 +91,7 @@ void main() {
         final dioAdapter = DioAdapter(dio: dio);
         final postDataSource = PostDataSourceImpl(dio: dio);
 
-        Map<String, dynamic> source = json.decode(fixture('posts.json'));
+        final source = 'posts.json'.toFixture();
         source['data']['children'][0]['data']['title'] = 0;
 
         dioAdapter.onGet(
