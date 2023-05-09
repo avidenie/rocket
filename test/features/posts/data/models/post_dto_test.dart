@@ -30,9 +30,12 @@ void main() {
         // arrange
         source.remove(key);
 
-        // act and assert
+        // act
+        call() => PostDto.fromJson(source);
+
+        // assert
         expect(
-          () => PostDto.fromJson(source),
+          call,
           throwsA(
             isA<TypeError>().having((err) => err.toString(), 'toString()',
                 startsWith('type \'Null\' is not a subtype of type')),
@@ -51,9 +54,12 @@ void main() {
         // arrange
         source[key] = value;
 
-        // act and assert
+        // act
+        call() => PostDto.fromJson(source);
+
+        // assert
         expect(
-            () => PostDto.fromJson(source),
+            call,
             throwsA(isA<TypeError>().having(
                 (err) => err.toString(),
                 'toString()',

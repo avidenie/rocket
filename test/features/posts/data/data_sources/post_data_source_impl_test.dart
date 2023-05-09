@@ -72,9 +72,12 @@ void main() {
           ),
         );
 
-        // act and assert
+        // act
+        final call = postDataSource.getPopularPosts;
+
+        // assert
         expectLater(
-          () async => await postDataSource.getPopularPosts(),
+          call,
           throwsA(
             isA<TypeError>().having((err) => err.toString(), 'toString()',
                 'type \'Null\' is not a subtype of type \'Map<String, dynamic>\''),
@@ -102,9 +105,12 @@ void main() {
           ),
         );
 
-        // act and assert
+        // act
+        final call = postDataSource.getPopularPosts;
+
+        // assert
         expectLater(
-          () async => await postDataSource.getPopularPosts(),
+          call,
           throwsA(
             isA<TypeError>().having((err) => err.toString(), 'toString()',
                 'type \'int\' is not a subtype of type \'String\' in type cast'),
@@ -126,9 +132,12 @@ void main() {
           (server) => server.reply(500, null),
         );
 
-        // act and assert
+        // act
+        final call = postDataSource.getPopularPosts;
+
+        // assert
         expectLater(
-          () async => await postDataSource.getPopularPosts(),
+          call,
           throwsA(
             isA<DioError>().having((err) => err.message, 'message',
                 'The request returned an invalid status code of 500.'),

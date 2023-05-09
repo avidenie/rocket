@@ -30,9 +30,13 @@ void main() {
       // arrange
       fromJson(Object? child) => child as String;
 
-      // act and assert
+      // act
+      call() =>
+          ListingDto.fromJson(<String, dynamic>{'key': 'value'}, fromJson);
+
+      // assert
       expect(
-        () => ListingDto.fromJson(<String, dynamic>{'key': 'value'}, fromJson),
+        call,
         throwsA(
           isA<TypeError>().having((err) => err.toString(), 'toString()',
               'type \'Null\' is not a subtype of type \'List<dynamic>\' in type cast'),
@@ -44,10 +48,14 @@ void main() {
       // arrange
       fromJson(Object? child) => child as String;
 
-      // act and assert
+      // act
+      call() {
+        ListingDto.fromJson(<String, dynamic>{'children': 'value'}, fromJson);
+      }
+
+      // assert
       expect(
-        () => ListingDto.fromJson(
-            <String, dynamic>{'children': 'value'}, fromJson),
+        call,
         throwsA(
           isA<TypeError>().having((err) => err.toString(), 'toString()',
               'type \'String\' is not a subtype of type \'List<dynamic>\' in type cast'),
