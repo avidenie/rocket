@@ -8,7 +8,7 @@ import 'package:rocket/features/posts/presentation/widgets/post_card.dart';
 
 void main() {
   group('PopularPostsScreen', () {
-    testWidgets('shows a loading indicator', (tester) async {
+    testWidgets('renders a loading indicator', (tester) async {
       // arrange
       final posts = [
         const Post(
