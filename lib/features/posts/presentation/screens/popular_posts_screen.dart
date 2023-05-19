@@ -21,12 +21,20 @@ class PopularPostsScreen extends StatelessWidget {
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (err, stack) => Text('error: $err'),
             data: (popularPosts) {
-              return ListView.separated(
-                itemBuilder: (context, index) =>
-                    PostCard(post: popularPosts[index]),
-                itemCount: popularPosts.length,
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 16),
+              return SafeArea(
+                bottom: false,
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 640),
+                    child: ListView.separated(
+                      itemBuilder: (context, index) =>
+                          PostCard(post: popularPosts[index]),
+                      itemCount: popularPosts.length,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 8),
+                    ),
+                  ),
+                ),
               );
             },
           );
