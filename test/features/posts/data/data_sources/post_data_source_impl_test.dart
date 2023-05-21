@@ -36,18 +36,28 @@ void main() {
                   (posts) => posts[0],
                   'first child',
                   const PostDto(
+                    id: '12ab345',
                     title: 'Nostrud incididunt magna nisi aute ex.',
                     subreddit: 'news',
                     author: 'Delia Monahan',
+                    created: 1684578940,
+                    numComments: 5192,
+                    score: 26139,
+                    hideScore: false,
                   ),
                 )
                 .having(
                   (posts) => posts[2],
                   'first child',
                   const PostDto(
+                    id: '12bc456',
                     title: 'Nisi sint eu aliqua nisi irure.',
                     subreddit: 'news',
                     author: 'Gilbert VonRueden',
+                    created: 1684591224,
+                    numComments: 782,
+                    score: 627,
+                    hideScore: true,
                   ),
                 ),
             hasLength(3),

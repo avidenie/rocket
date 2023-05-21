@@ -1,6 +1,11 @@
 
 {
+  "id": "1000a",
   "title": "lorem ipsum",
   "author": "John Doe",
-  "subreddit": "news"
+  "subreddit": "news",
+  "created": 1684591224,
+  "num_comments": 15465,
+  "score": 2305,
+  "hide_score": false
 }

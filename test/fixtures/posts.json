@@ -3,23 +3,39 @@
     "children": [
       {
         "data": {
+          "id": "12ab345",
           "title": "Nostrud incididunt magna nisi aute ex.",
+          "self_text": "Eiusmod elit culpa sint adipisicing laborum tempor duis proident sunt quis sint id officia ipsum.",
           "author": "Delia Monahan",
-          "subreddit": "news"
+          "subreddit": "news",
+          "created": 1684578940,
+          "num_comments": 5192,
+          "score": 26139,
+          "hide_score": false
         }
       },
       {
         "data": {
+          "id": "12cd567",
           "title": "Adipisicing ut eu ad magna nostrud enim.",
           "author": "Carole Hudson",
-          "subreddit": "news"
+          "subreddit": "news",
+          "created": 1684579078,
+          "num_comments": 1322,
+          "score": 1845,
+          "hide_score": false
         }
       },
       {
         "data": {
+          "id": "12bc456",
           "title": "Nisi sint eu aliqua nisi irure.",
           "author": "Gilbert VonRueden",
-          "subreddit": "news"
+          "subreddit": "news",
+          "created": 1684591224,
+          "num_comments": 782,
+          "score": 627,
+          "hide_score": true
         }
       }
     ]

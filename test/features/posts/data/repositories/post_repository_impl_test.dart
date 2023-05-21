@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rocket/features/posts/data/data_sources/post_data_source.dart';
-import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:rocket/features/posts/data/data_sources/post_data_source.dart';
 import 'package:rocket/features/posts/data/mappers/post_to_domain.dart';
-import 'package:rocket/features/posts/data/models/post_dto.dart';
 import 'package:rocket/features/posts/data/repositories/post_repository_impl.dart';
 
+import '../../../../fixtures/post_dtos.dart';
 import 'post_repository_impl_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<PostDataSource>()])
@@ -38,23 +38,17 @@ void main() {
       'returns a list of posts loaded by the data source',
       () async {
         // ARRANGE
-        // create a list of posts
-        const tPost1 = PostDto(
-            title: 'lorem ipsum 1', author: 'author 1', subreddit: 'news');
-        const tPost2 = PostDto(
-            title: 'lorem ipsum 2', author: 'author 2', subreddit: 'news');
-        final tPosts = [tPost1, tPost2];
 
         // stub the data source response
         when(mockPostDataSource.getPopularPosts())
-            .thenAnswer((_) async => Future.value(tPosts));
+            .thenAnswer((_) async => Future.value(tPostDtos));
 
         // ACT
         final result = await repository.getPopularPosts();
 
         // ASSERT
         verify(mockPostDataSource.getPopularPosts()).called(1);
-        expect(result, tPosts.map((post) => post.toDomain()));
+        expect(result, tPostDtos.map((post) => post.toDomain()));
       },
     );
 

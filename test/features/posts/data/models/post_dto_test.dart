@@ -19,9 +19,14 @@ void main() {
       expect(
         post,
         isA<PostDto>()
+            .having((post) => post.id, 'id', '1000a')
             .having((post) => post.title, 'title', 'lorem ipsum')
             .having((post) => post.author, 'author', 'John Doe')
-            .having((post) => post.subreddit, 'subreddit', 'news'),
+            .having((post) => post.subreddit, 'subreddit', 'news')
+            .having((post) => post.created, 'created', 1684591224)
+            .having((post) => post.numComments, 'numComments', 15465)
+            .having((post) => post.score, 'score', 2305)
+            .having((post) => post.hideScore, 'hideScore', false),
       );
     });
 

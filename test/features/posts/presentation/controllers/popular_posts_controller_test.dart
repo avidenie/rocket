@@ -7,6 +7,7 @@ import 'package:rocket/features/posts/domain/models/post.dart';
 import 'package:rocket/features/posts/domain/repositories/post_repository.dart';
 import 'package:rocket/features/posts/presentation/controllers/popular_posts_controller.dart';
 
+import '../../../../fixtures/posts.dart';
 import 'popular_posts_controller_test.mocks.dart';
 
 class Listener<T> extends Mock {
@@ -47,12 +48,6 @@ void main() {
 
   test('state is AsyncData when loading a list of popular posts', () async {
     // ARRANGE
-    // create a list of posts
-    const tPost1 =
-        Post(title: 'lorem ipsum 1', author: 'author 1', community: 'news');
-    const tPost2 =
-        Post(title: 'lorem ipsum 2', author: 'author 2', community: 'news');
-    final tPosts = [tPost1, tPost2];
 
     // create a mock repository
     final postRepository = MockPostRepository();

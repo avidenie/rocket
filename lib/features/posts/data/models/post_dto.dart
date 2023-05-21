@@ -8,9 +8,15 @@ class PostDto with _$PostDto {
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PostDto({
-    required String title,
-    required String subreddit,
     required String author,
+    required double created,
+    required bool hideScore,
+    required String id,
+    required int numComments,
+    required int score,
+    String? selftext,
+    required String subreddit,
+    required String title,
   }) = _PostDto;
 
   factory PostDto.fromJson(Map<String, dynamic> json) =>

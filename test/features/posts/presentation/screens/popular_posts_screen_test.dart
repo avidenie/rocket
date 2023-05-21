@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rocket/features/posts/domain/models/post.dart';
 import 'package:rocket/features/posts/presentation/controllers/popular_posts_controller.dart';
 import 'package:rocket/features/posts/presentation/screens/popular_posts_screen.dart';
 import 'package:rocket/features/posts/presentation/widgets/post_card.dart';
+
+import '../../../../fixtures/posts.dart';
 
 void main() {
   group('PopularPostsScreen', () {
     testWidgets('renders a loading indicator', (tester) async {
       // arrange
-      final posts = [
-        const Post(
-            title: 'Ex incididunt excepteur esse magna duis.',
-            author: 'Merle Stroman',
-            community: 'news'),
-        const Post(
-            title: 'Mollit ad incididunt dolor Lorem.',
-            author: 'Bridget Becker',
-            community: 'news'),
-      ];
       final widget = ProviderScope(
         overrides: [
           popularPostsControllerProvider
-              .overrideWith((ref) => Future.value(posts))
+              .overrideWith((ref) => Future.value(tPosts))
         ],
         child: const MaterialApp(
           home: PopularPostsScreen(),
@@ -81,19 +72,9 @@ void main() {
 
     testWidgets('renders a list of posts', (tester) async {
       // arrange
-      final posts = [
-        const Post(
-            title: 'Ex incididunt excepteur esse magna duis.',
-            author: 'Merle Stroman',
-            community: 'news'),
-        const Post(
-            title: 'Mollit ad incididunt dolor Lorem.',
-            author: 'Bridget Becker',
-            community: 'news'),
-      ];
       final widget = ProviderScope(
         overrides: [
-          popularPostsControllerProvider.overrideWith((ref) => posts)
+          popularPostsControllerProvider.overrideWith((ref) => tPosts)
         ],
         child: const MaterialApp(
           home: PopularPostsScreen(),
@@ -105,8 +86,8 @@ void main() {
 
       // assert
       expect(tester.widgetList(find.byType(PostCard)), [
-        isA<PostCard>().having((s) => s.post, 'first post', posts[0]),
-        isA<PostCard>().having((s) => s.post, 'second post', posts[1]),
+        isA<PostCard>().having((s) => s.post, 'first post', tPosts[0]),
+        isA<PostCard>().having((s) => s.post, 'second post', tPosts[1]),
       ]);
     });
   });
